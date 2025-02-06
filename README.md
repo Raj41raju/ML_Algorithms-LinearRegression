@@ -45,6 +45,87 @@ if variance of residuals(errors) is not constant then predictions can be **biase
 4. **No Multicollinearity:** In multple regression(having more then one independent variable), independent variables should not be highly correlated.
 **Example:** since scuare footage and no. of rooms are highly correlated, so it can distort the model accuracy.
 
+## Calculation of Best Fit Line 
+
+
+![image alt](https://github.com/Raj41raju/ML_Algorithms-LinearRegression/blob/main/best%20fit%20line.png?raw=true)
+
+To Calculate the best fit line the error between the actual value and the predicted value should be minimum.
+
+**Calculate the error** 
+
+if d is the difference between actual value and predected value then
+
+error = d1 + d2 + _ _ _ _ + dn 
+
+since the difference b/w actual and predected value can be +ve or -ve, so if we directlly add all -ve and +ve errors then they will cencle out each other. Thus we take the **square of errors**
+
+**Q. Why are we taking square of errors (
+𝑦
+−
+𝑦^
+)
+2 
+not taking abs(|y-y^|) ?**
+
+The reason we square the errors instead of taking the absolute value (modulus) is mainly due to three key reasons:
+
+a. Differentiability of Error Functions  
+
+- The squared error function (y - y^)2 is **differentiable everywhere**, making it easier to compute gradients and apply **gradient descent**.  
+- The absolute error function (|y - y^|) has a **sharp corner at 0**, making its derivative **undefined** at that point.  
+- This creates problems for optimization algorithms like **gradient descent**, which rely on smooth updates.  
+
+b. Penalizing Larger Errors More  
+
+- Squaring the errors **magnifies larger errors** more than smaller ones.  
+- This means the model focuses more on **correcting large mistakes**, leading to better data fitting.  
+
+c. Mathematical Convenience
+- The squared error function results in a convex function, meaning it has a single global minimum. This ensures gradient descent will converge effectively.
+- Absolute error leads to a piecewise linear function, which is harder to optimize using gradient descent.
+
+Now, error = d1²  + d2²  +d3²  + _ _ _ + dn² 
+
+error = ∑ (y_i -y^)² for i = 1 to n 
+
+where y_i = actual value 
+y^ = predected value 
+ so, y^ = mx_i + c 
+
+error  = ∑ (y_i -mX_i - c)² for i = 1 to n 
+
+in the above equation m and c are the only unknown values
+
+so, error(m,c) = ∑ (y_i -mX_i - c)² for i = 1 to n 
+
+Thus find the value of m & c for minimum error
+To find the value of m & c, corrosponding to minimum error, take the partital differentation of error w. r. t. m and c and equate to 0 and find m & c 
+
+![image alt](https://github.com/Raj41raju/ML_Algorithms-LinearRegression/blob/main/mean%20square%20error%201.jpg?raw=true)
+
+![image alt](https://github.com/Raj41raju/ML_Algorithms-LinearRegression/blob/main/mean%20square%20error%202.jpg?raw=true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,4 +185,3 @@ If heteroscedasticity is detected, we can:
 | **Impact on Model**    | Reliable Predictions | Biased & inefficient model |
 | **Detection Method**   | Residual Plot, Breusch-Pagan Test | Same methods |
 | **Fixing Method**      | No fixing needed        | Log transformation, WLS, Robust Errors |
-
