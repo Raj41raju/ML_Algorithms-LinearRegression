@@ -45,6 +45,8 @@ if variance of residuals(errors) is not constant then predictions can be **biase
 4. **No Multicollinearity:** In multple regression(having more then one independent variable), independent variables should not be highly correlated.
 **Example:** since scuare footage and no. of rooms are highly correlated, so it can distort the model accuracy.
 
+5. Errors or resudal is normally distributed with mean = 0 and std. deviation sigma square
+
 ## Calculation of Best Fit Line 
 
 
@@ -185,3 +187,6 @@ If heteroscedasticity is detected, we can:
 | **Impact on Model**    | Reliable Predictions | Biased & inefficient model |
 | **Detection Method**   | Residual Plot, Breusch-Pagan Test | Same methods |
 | **Fixing Method**      | No fixing needed        | Log transformation, WLS, Robust Errors |
+
+
+
